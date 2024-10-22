@@ -1,17 +1,20 @@
 import Button from "../UI/Button/Button"
 import style from "./SideContent.module.css"
-import List from "../List/List"
+import ListItem from "./List/ListItem"
 
 const SideContent = (props)=>{
-  const handleListChange =()=>{
-    
+  const handleClick = ()=>{
+    props.handleProjectCreation()
   }
   return(
     <div className={style.holder}>
       <div>
         <h1>Projects</h1>
-        <Button><h2>+ Add Project</h2></Button>
+        {!props.createProject && <Button onClick={handleClick}><h2>+ Add Project</h2></Button>}
       </div>
+      {props.projects.map((project)=>{
+        return <ListItem project = {project}/>
+      })}
     </div>
   )
 }
