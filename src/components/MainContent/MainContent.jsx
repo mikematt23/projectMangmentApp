@@ -10,7 +10,12 @@ const MainContent = (props)=>{
                project={props.project} 
                handleProjectCreation ={props.handleProjectCreation}
             />}
-            {props.createProject && <ProjectInput/>}  
+            {props.createProject && <ProjectInput
+              handleProjectInput ={props.handleProjectInput}
+              handleProjectCreation ={props.handleProjectCreation}
+              handleListChange={props.handleListChange}
+              handleHasProject={props.handleHasProject}
+            />}  
         </div>
     )
 }

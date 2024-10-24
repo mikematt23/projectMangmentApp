@@ -1,12 +1,24 @@
 import { useRef } from "react"
 import Input from "../../UI/Input.jsx/Input"
 import Button from "../../UI/Button/Button"
+
 const ProjectInput = (props)=>{
+
     const titleRef = useRef()
     const descriptionRef = useRef()
 
     const handleAddProject = ()=>{
-        console.log(titleRef.current.value, descriptionRef.current.value)
+        const title = titleRef.current.value
+        const description = descriptionRef.current.value
+        const project = {
+            title:title,
+            decription:description,
+            tasks:[]
+        }
+        props.handleProjectInput(project)
+        props.handleListChange(project)
+        props.handleProjectCreation()
+        props.handleHasProject()
     }
 
    return(

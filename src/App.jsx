@@ -1,25 +1,23 @@
 import SideContent from "./components/SideContent/SideContent"
 import MainContent from "./components/MainContent/MainContent"
-import { useState, useRef } from "react"
+import { useState } from "react"
 import './App.css'
 
 function App() {
 
   const [projects,setProjects] = useState([])
-  const [createProject,setCreateProject] = useState(false)
   const [project,setProject] = useState()
+  const [createProject,setCreateProject] = useState(false)
   const [hasProject,setHasProject] = useState(false)
 
-
-
+ 
   const handleListChange = (listItem)=>{
-    setProjects((prevProjects)=>{
-      [...prevProjects,listItem]
-    })
+
+    setProjects([...projects,listItem])
   }
 
-  const handleProjectInput = (project)=>{
-    setProject(project)
+  const handleProjectInput = (item)=>{
+    setProject(item)
   }
 
   const handleProjectCreation = ()=>{
@@ -40,10 +38,11 @@ function App() {
       <MainContent 
         project={project} 
         hasProject={hasProject}
+        createProject={createProject} 
         handleHasProject={handleHasProject}
         handleProjectInput={handleProjectInput} 
-        createProject={createProject} 
-        handleProjectCreation={handleProjectCreation} 
+        handleProjectCreation={handleProjectCreation}
+        handleListChange={handleListChange} 
       />
     </div>
   )
