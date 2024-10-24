@@ -7,6 +7,16 @@ const ProjectInput = (props)=>{
 
     const handleAddProject = ()=>{
         console.log(titleRef.current.value, descriptionRef.current.value)
+        const project = {
+          title:titleRef.current.value,
+          description:descriptionRef.current.value,
+          tasks:[]
+        }
+
+        props.handleProjectInput(project)
+        props.handleListChange(project)
+        props.handleHasProject(true)
+        props.handleProjectCreation()
     }
 
    return(

@@ -11,23 +11,25 @@ function App() {
   const [hasProject,setHasProject] = useState(false)
 
 
-
   const handleListChange = (listItem)=>{
-    setProjects((prevProjects)=>{
-      [...prevProjects,listItem]
-    })
+    setProjects([...projects,listItem])
   }
 
   const handleProjectInput = (project)=>{
     setProject(project)
   }
 
-  const handleProjectCreation = ()=>{
-    setCreateProject(!createProject)
+  const handleProjectCreation = (bool)=>{
+    setCreateProject(bool)
   }
-   const handleHasProject = ()=>{
-    setHasProject(!hasProject)
+   const handleHasProject = (bool)=>{
+    setHasProject(bool)
    }
+
+   const updateProject = (project,tasks, newTask)=>{
+    setProject({...project,tasks:[...tasks,newTask]})
+   }
+
 
   return (
     <div className="holder">
@@ -36,14 +38,17 @@ function App() {
         createProject={createProject} 
         handleListChange={handleListChange} 
         handleProjectCreation={handleProjectCreation}
+        handleProjectInput = {handleProjectInput}
       />
       <MainContent 
         project={project} 
         hasProject={hasProject}
+        createProject={createProject} 
         handleHasProject={handleHasProject}
         handleProjectInput={handleProjectInput} 
-        createProject={createProject} 
         handleProjectCreation={handleProjectCreation} 
+        handleListChange = {handleListChange} 
+        updateProject = {updateProject}
       />
     </div>
   )

@@ -3,8 +3,9 @@ import style from "./SideContent.module.css"
 import ListItem from "./List/ListItem"
 
 const SideContent = (props)=>{
+
   const handleClick = ()=>{
-    props.handleProjectCreation()
+    props.handleProjectCreation(true)
   }
   return(
     <div className={style.holder}>
@@ -13,7 +14,7 @@ const SideContent = (props)=>{
         {!props.createProject && <Button onClick={handleClick}><h2>+ Add Project</h2></Button>}
       </div>
       {props.projects.map((project)=>{
-        return <ListItem project = {project}/>
+        return <ListItem handleProjectInput = {props.handleProjectInput} project = {project}/>
       })}
     </div>
   )

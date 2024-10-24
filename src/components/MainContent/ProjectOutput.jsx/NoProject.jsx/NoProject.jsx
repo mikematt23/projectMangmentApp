@@ -2,7 +2,7 @@ import Button from "../../../UI/Button/Button"
 
 const NoProject = (props)=>{
     const handleChange = ()=>{
-        props.handleProjectCreation()
+        props.handleProjectCreation(true)
     }
     return(
         <div>

@@ -9,8 +9,15 @@ const MainContent = (props)=>{
                createProject={props.createProject} 
                project={props.project} 
                handleProjectCreation ={props.handleProjectCreation}
+               handleUpdateTasks = {props.handleUpdateTasks}
+               updateProject = {props.updateProject}
             />}
-            {props.createProject && <ProjectInput/>}  
+            {props.createProject && <ProjectInput
+              handleProjectCreation={props.handleProjectCreation}
+              handleProjectInput = {props.handleProjectInput}
+              handleHasProject = {props.handleHasProject}
+              handleListChange = {props.handleListChange}
+            />}  
         </div>
     )
 }
