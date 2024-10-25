@@ -4,12 +4,9 @@ import Input from "../../../UI/Input.jsx/Input"
 import Button from "../../../UI/Button/Button"
 
 const Project = (props)=>{
-  console.log(props.project.tasks)
-  const [tasks, setTasks] = useState([])
   const taskRef = useRef()
-
+ console.log(props.project)
   const handleAddTask = ()=>{
-    console.log(taskRef.current.value)
     props.updateProject(props.project,props.project.tasks,taskRef.current.value)
   }
 

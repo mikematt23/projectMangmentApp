@@ -11,7 +11,7 @@ const ProjectInput = (props)=>{
         console.log(titleRef.current.value, descriptionRef.current.value)
         const project = {
           title:titleRef.current.value,
-          description:descriptionRef.current.value,
+          discription:descriptionRef.current.value,
           tasks:[]
         }
 

@@ -9,8 +9,7 @@ function App() {
   const [project,setProject] = useState()
   const [createProject,setCreateProject] = useState(false)
   const [hasProject,setHasProject] = useState(false)
-
- 
+  
   const handleListChange = (listItem)=>{
 
     setProjects([...projects,listItem])
@@ -27,8 +26,22 @@ function App() {
     setHasProject(bool)
    }
 
-   const updateProject = (project,tasks, newTask)=>{
+   const updateProject = (projectItem,tasks, newTask)=>{
     setProject({...project,tasks:[...tasks,newTask]})
+    
+    setProjects(projects.map((project)=>{
+        if(projectItem.title === project.title){
+          return project = {
+            title:project.title,
+            discription: project.discription,
+            tasks:[...tasks,newTask]
+          }
+          }else{
+            return project
+          }
+         }
+       )
+     )
    }
 
 
@@ -49,6 +62,7 @@ function App() {
         handleProjectInput={handleProjectInput} 
         handleProjectCreation={handleProjectCreation}
         handleListChange={handleListChange} 
+        updateProject = {updateProject}
       />
     </div>
   )
