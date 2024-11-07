@@ -54,16 +54,18 @@ function App() {
         handleProjectCreation={handleProjectCreation}
         handleProjectInput = {handleProjectInput}
       />
-      <MainContent 
-        project={project} 
-        hasProject={hasProject}
-        createProject={createProject} 
-        handleHasProject={handleHasProject}
-        handleProjectInput={handleProjectInput} 
-        handleProjectCreation={handleProjectCreation}
-        handleListChange={handleListChange} 
-        updateProject = {updateProject}
-      />
+      <div className="mainContentHolder">
+        <MainContent 
+          project={project} 
+          hasProject={hasProject}
+          createProject={createProject} 
+          handleHasProject={handleHasProject}
+          handleProjectInput={handleProjectInput} 
+          handleProjectCreation={handleProjectCreation}
+          handleListChange={handleListChange} 
+          updateProject = {updateProject}
+        />
+      </div>
     </div>
   )
 }

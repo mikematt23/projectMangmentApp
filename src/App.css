@@ -7,4 +7,10 @@
    padding-top: 8%;
 }
 
+.mainContentHolder{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 

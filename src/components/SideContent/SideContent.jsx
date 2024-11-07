@@ -10,8 +10,8 @@ const SideContent = (props)=>{
   return(
     <div className={style.holder}>
       <div>
-        <h1>Projects</h1>
-        {!props.createProject && <Button onClick={handleClick}><h2>+ Add Project</h2></Button>}
+        <h1 className={style.h1} >Your Projects</h1>
+        {!props.createProject && <Button styles="addProject" onClick={handleClick}><h2>+ Add Project</h2></Button>}
       </div>
       {props.projects.map((project)=>{
         return <ListItem handleProjectInput = {props.handleProjectInput} project = {project}/>

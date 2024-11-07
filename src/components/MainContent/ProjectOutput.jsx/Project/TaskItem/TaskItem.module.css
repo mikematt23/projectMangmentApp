@@ -1,0 +1,6 @@
+.holder{
+    display:flex;
+    flex-direction: row;
+    width: 180%;
+    background-color: red;
+}

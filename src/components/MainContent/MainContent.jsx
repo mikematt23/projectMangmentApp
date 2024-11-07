@@ -1,5 +1,6 @@
 import ProjectOutput from "./ProjectOutput.jsx/ProjectOutput"
 import ProjectInput from "./ProjectInput.jsx/ProjectInput"
+import Card from "../UI/Card/Card"
 
 const MainContent = (props)=>{
     return(

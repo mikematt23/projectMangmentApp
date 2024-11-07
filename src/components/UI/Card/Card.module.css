@@ -1,0 +1,11 @@
+
+
+.Card{
+    display : felx;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    height: 100%;
+    width: 100%;
+}
