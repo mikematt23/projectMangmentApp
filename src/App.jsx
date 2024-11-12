@@ -5,6 +5,7 @@ import './App.css'
 
 function App() {
 
+  const [id,setId] = useState(0)
   const [projects,setProjects] = useState([])
   const [project,setProject] = useState()
   const [createProject,setCreateProject] = useState(false)
@@ -26,11 +27,15 @@ function App() {
     setHasProject(bool)
    }
 
+   const upDateId = ()=>{
+    setId(id+1)
+   }
+
    const updateProject = (projectItem,tasks, newTask)=>{
     setProject({...project,tasks:[...tasks,newTask]})
     
     setProjects(projects.map((project)=>{
-        if(projectItem.title === project.title){
+        if(projectItem.id === project.id){
           return project = {
             title:project.title,
             discription: project.discription,
@@ -57,6 +62,9 @@ function App() {
       <div className="mainContentHolder">
         <MainContent 
           project={project} 
+          projects={projects}
+          upDateId = {upDateId}
+          id = {id}
           hasProject={hasProject}
           createProject={createProject} 
           handleHasProject={handleHasProject}

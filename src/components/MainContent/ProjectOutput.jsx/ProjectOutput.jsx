@@ -8,7 +8,7 @@ const ProjectOutput = (props)=>
     return(
       <>
         {!props.hasProject && <NoProject handleProjectCreation={props.handleProjectCreation}/>}
-        {props.hasProject && <Project updateProject = {props.updateProject} project={props.project} handleProjectCreation={props.handleProjectCreation} />}
+        {props.hasProject && <Project updateProject = {props.updateProject} projects={props.projects} project={props.project} handleProjectCreation={props.handleProjectCreation} />}
       </>
     )
 }

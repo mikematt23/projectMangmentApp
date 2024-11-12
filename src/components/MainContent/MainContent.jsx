@@ -9,6 +9,7 @@ const MainContent = (props)=>{
                hasProject={props.hasProject} 
                createProject={props.createProject} 
                project={props.project} 
+               projects = {props.projects}
                handleProjectCreation ={props.handleProjectCreation}
                handleUpdateTasks = {props.handleUpdateTasks}
                updateProject = {props.updateProject}
@@ -18,6 +19,9 @@ const MainContent = (props)=>{
               handleProjectInput = {props.handleProjectInput}
               handleHasProject = {props.handleHasProject}
               handleListChange = {props.handleListChange}
+              projects = {props.projects}
+              id= {props.id}
+              upDateId = {props.upDateId}
             />}  
         </div>
     )
