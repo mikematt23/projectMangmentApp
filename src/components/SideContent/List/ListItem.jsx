@@ -2,6 +2,7 @@ import styles from "./listItem.module.css"
 
 const ListItem = (props)=>{
     const handleProjectChange = ()=>{
+        props.handleHasProject(true)
         props.handleProjectInput(props.project)
     }
     return(

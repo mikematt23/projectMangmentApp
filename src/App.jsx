@@ -12,7 +12,6 @@ function App() {
   const [hasProject,setHasProject] = useState(false)
 
   const handleListChange = (listItem)=>{
-
     setProjects([...projects,listItem])
   }
 
@@ -28,7 +27,7 @@ function App() {
    }
 
    const upDateId = ()=>{
-    setId(id+1)
+    setId(id + 1)
    }
 
    const updateProject = (projectItem,tasks, newTask)=>{
@@ -53,7 +52,6 @@ function App() {
    const deleteProjectTask = (id,task)=>{
       const pro = projects.find((project)=> project.id === id)
       const newTaskArray = pro.tasks.filter((projectTask)=>{
-        console.log(projectTask, task)
         if(task != projectTask){
           return projectTask
         }
@@ -75,12 +73,24 @@ function App() {
      )
    }
 
+   const deleteProject = (id)=>{
+     setHasProject(false)
+     setProjects(projects.filter((project)=>{
+       if(project.id === id){
+         return
+       }else{
+        return project
+       }
+     }))
+   }
+
   return (
     <div className="holder">
       <SideContent 
         projects = {projects} 
         createProject={createProject} 
         handleListChange={handleListChange} 
+        handleHasProject = {handleHasProject}
         handleProjectCreation={handleProjectCreation}
         handleProjectInput = {handleProjectInput}
       />
@@ -98,6 +108,7 @@ function App() {
           handleListChange={handleListChange} 
           updateProject = {updateProject}
           deleteProjectTask = {deleteProjectTask}
+          deleteProject = {deleteProject}
         />
       </div>
     </div>

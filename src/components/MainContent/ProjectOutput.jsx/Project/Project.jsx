@@ -5,12 +5,15 @@ import Button from "../../../UI/Button/Button"
 import TaskItem from "./TaskItem/TaskItme"
 
 const Project = (props)=>{
-  const [hasTasks,setHasTasks] = useState(false)
   const taskRef = useRef()
+  
   const handleAddTask = ()=>{
     props.updateProject(props.project,props.project.tasks,taskRef.current.value)
   }
 
+  const handleDeleteProject = ()=>{
+    props.deleteProject(props.project.id)
+  }
 
 
    return(
@@ -19,6 +22,7 @@ const Project = (props)=>{
         <h1>{props.project.title}</h1>
         <h3>{props.project.discription}</h3>
       </div>
+      <Button onClick={handleDeleteProject}>Delete Project</Button>
       <div>
   
         <div>
