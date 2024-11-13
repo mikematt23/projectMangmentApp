@@ -3,12 +3,15 @@ import { useState, useRef } from "react"
 import Input from "../../../UI/Input.jsx/Input"
 import Button from "../../../UI/Button/Button"
 import TaskItem from "./TaskItem/TaskItme"
-const Project = (props)=>{
-  const taskRef = useRef()
 
+const Project = (props)=>{
+  const [hasTasks,setHasTasks] = useState(false)
+  const taskRef = useRef()
   const handleAddTask = ()=>{
     props.updateProject(props.project,props.project.tasks,taskRef.current.value)
   }
+
+
 
    return(
     <div>
@@ -24,7 +27,7 @@ const Project = (props)=>{
         </div>
         <div>
           {props.project.tasks.map((task)=>{
-            return <TaskItem task={task}/>
+            return <TaskItem deleteProjectTask ={props.deleteProjectTask} task={task} project={props.project}/>
            })}
         </div>
       </div>

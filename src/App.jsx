@@ -10,7 +10,7 @@ function App() {
   const [project,setProject] = useState()
   const [createProject,setCreateProject] = useState(false)
   const [hasProject,setHasProject] = useState(false)
-  
+
   const handleListChange = (listItem)=>{
 
     setProjects([...projects,listItem])
@@ -37,6 +37,7 @@ function App() {
     setProjects(projects.map((project)=>{
         if(projectItem.id === project.id){
           return project = {
+            id:project.id,
             title:project.title,
             discription: project.discription,
             tasks:[...tasks,newTask]
@@ -48,7 +49,31 @@ function App() {
        )
      )
    }
-
+   
+   const deleteProjectTask = (id,task)=>{
+      const pro = projects.find((project)=> project.id === id)
+      const newTaskArray = pro.tasks.filter((projectTask)=>{
+        console.log(projectTask, task)
+        if(task != projectTask){
+          return projectTask
+        }
+      })
+      setProject({...project,tasks: newTaskArray})
+      setProjects(projects.map((project)=>{
+        if(project.id === pro.id){
+          return project = {
+            id:project.id,
+            title:project.title,
+            discription: project.discription,
+            tasks:[...newTaskArray]
+          }
+          }else{
+            return project
+          }
+         }
+       )
+     )
+   }
 
   return (
     <div className="holder">
@@ -72,6 +97,7 @@ function App() {
           handleProjectCreation={handleProjectCreation}
           handleListChange={handleListChange} 
           updateProject = {updateProject}
+          deleteProjectTask = {deleteProjectTask}
         />
       </div>
     </div>

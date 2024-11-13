@@ -13,6 +13,7 @@ const MainContent = (props)=>{
                handleProjectCreation ={props.handleProjectCreation}
                handleUpdateTasks = {props.handleUpdateTasks}
                updateProject = {props.updateProject}
+               deleteProjectTask = {props.deleteProjectTask}
             />}
             {props.createProject && <ProjectInput
               handleProjectCreation={props.handleProjectCreation}
